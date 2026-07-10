@@ -1,3 +1,5 @@
+package org.correction.hotel;
+
 import java.time.Instant;
 
 public class RoomReservation {

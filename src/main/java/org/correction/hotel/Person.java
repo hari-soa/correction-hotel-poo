@@ -1,3 +1,5 @@
+package org.correction.hotel;
+
 public class Person {
     private String id;
     private String firstName;

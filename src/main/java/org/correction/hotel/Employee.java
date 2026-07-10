@@ -1,3 +1,5 @@
+package org.correction.hotel;
+
 import java.math.BigDecimal;
 
 public class Employee extends Person {

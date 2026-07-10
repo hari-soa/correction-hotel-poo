@@ -1,3 +1,5 @@
+package org.correction.hotel;
+
 import java.util.List;
 
 public class Room {

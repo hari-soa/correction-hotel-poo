@@ -1,3 +1,5 @@
+package org.correction.hotel;
+
 public enum Feature {
     DOUBLE_SIZE_BED,
     SINGLE_SIZE_BED,

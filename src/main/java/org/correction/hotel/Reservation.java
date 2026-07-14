@@ -1,6 +1,7 @@
 package org.correction.hotel;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -8,11 +9,13 @@ import java.time.Instant;
 import java.util.List;
 
 @Getter
+@Setter
+
 public class Reservation {
     private String id;
-    private Instant creatAt;
-    private boolean hasCheckout;
-    private boolean hasChecking;
+    private Instant createdAt;
+    private boolean hasCheckedOut;
+    private boolean hasCheckedIn;
     private ReservationStatus status;
     private Employee employee;
     private Payment payment;

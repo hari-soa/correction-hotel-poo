@@ -30,10 +30,10 @@ public class RoomService {
     }
 
     private boolean isRoomFree(Room room, Instant startDate, Instant endDate) {
-        for (RoomReservation res : allReservations) {
-            if (res.getRoom().getId().equals(room.getId())) {
+        for (RoomReservation reservation : allReservations) {
+            if (reservation.getRoom().getId().equals(room.getId())) {
 
-                if (res.getStartDate().isBefore(endDate) && res.getEndDate().isAfter(startDate)) {
+                if (reservation.getStartDate().isBefore(endDate) && reservation.getEndDate().isAfter(startDate)) {
                     return false;
                 }
             }

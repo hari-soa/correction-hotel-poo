@@ -19,13 +19,14 @@ public class Reservation {
     private ReservationStatus status;
     private Employee employee;
     private Payment payment;
+    private Customer customer;
     private List<RoomReservation> roomReservations;
 
     public void cancel(){
         this.status = ReservationStatus.CANCELED;
     }
 
-    public BigDecimal getTotalCount(){
+    public BigDecimal getTotalCost(){
         BigDecimal total = BigDecimal.ZERO;
 
         for (RoomReservation roomReservation : roomReservations){

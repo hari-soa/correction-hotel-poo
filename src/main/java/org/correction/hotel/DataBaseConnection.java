@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DataBaseConnection {
     private static  String URL = "jdbc:postgresql://localhost:5432/correction_hotel";
     private static  String USER = "hotel";
-    private static  String PASSWORD = "tsarasoa";
+    private static  String PASSWORD = " ";
 
     public static Connection getConnection() throws SQLException {
 

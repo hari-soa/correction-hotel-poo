@@ -15,8 +15,8 @@ public class ReservationTest {
 
     @BeforeEach
     void setUp() {
-        var reservation = new Reservation();
-        reservation.setRoomReservations(new ArrayList<>());
+        this.reservation = new Reservation();
+        this.reservation.setRoomReservations(new ArrayList<>());
     }
 
     @Test
@@ -26,15 +26,15 @@ public class ReservationTest {
 
         Instant start1 = Instant.parse("2026-07-15T12:00:00Z");
         Instant end1 = Instant.parse("2026-07-17T12:00:00Z");
-        var res1 = new RoomReservation();
+        var reservation1 = new RoomReservation(standardRoom, "3", start1, end1);
 
         Instant start2 = Instant.parse("2026-07-15T12:00:00Z");
         Instant end2 = Instant.parse("2026-07-18T12:00:00Z");
-        var res2 = new RoomReservation();
+        var reservation2 = new RoomReservation(luxuryRoom, "1", start2, end2);
 
-        reservation.getRoomReservations().add(res1);
-        reservation.getRoomReservations().add(res2);
-        BigDecimal expectedTotal = BigDecimal.valueOf(540.0);
+        reservation.getRoomReservations().add(reservation1);
+        reservation.getRoomReservations().add(reservation2);
+        BigDecimal expectedTotal = BigDecimal.valueOf(610_000.0);
 
         BigDecimal actualTotal = reservation.getTotalCost();
 

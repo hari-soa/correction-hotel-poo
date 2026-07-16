@@ -1,17 +1,29 @@
 package org.correction.hotel;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        System.out.println("--- DÉMARRAGE DE L'APPLICATION HÔTEL ---");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        RoomService roomService = new RoomService();
+
+        BigDecimal prixMin = new BigDecimal("50000.0");
+        BigDecimal prixMax = new BigDecimal("200000.0");
+        Instant debut = Instant.parse("2026-07-15T12:00:00Z");
+        Instant fin = Instant.parse("2026-07-17T12:00:00Z");
+
+        System.out.println("Recherche des chambres disponibles...");
+        List<Room> chambresDisponibles = roomService.searchFreeRoom(prixMin, prixMax, debut, fin);
+
+        if (chambresDisponibles.isEmpty()) {
+            System.out.println("Aucune chambre libre trouvée pour ces critères.");
+        } else {
+            for (Room room : chambresDisponibles) {
+                System.out.println("Chambre ID: " + room.getId() + " | Prix: " + room.getPrice() + " Ar");
+            }
         }
     }
 }

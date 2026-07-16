@@ -13,13 +13,13 @@ public class RoomDAO {
         List<Room> rooms = new ArrayList<>();
         String sql = "SELECT id, price FROM room";
 
-        try (Connection conn = DataBaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
+        try (Connection connection = DataBaseConnection.getConnection();
+             PreparedStatement stat = connection.prepareStatement(sql);
+             ResultSet result = stat.executeQuery()) {
 
-            while (rs.next()) {
-                String id = rs.getString("id");
-                double price = rs.getDouble("price");
+            while (result.next()) {
+                String id = result.getString("id");
+                double price = result.getDouble("price");
 
                 rooms.add(new Room(id, price));
             }

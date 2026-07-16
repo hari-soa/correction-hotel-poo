@@ -23,10 +23,10 @@ psql -U postgres
 CREATE DATABASE hotel;
 \q
 # Syntaxe générale :
-psql -U [votre_utilisateur] -d hotel < chemin/vers/correction_hotel.sql
+psql -U [votre_utilisateur] -d correction_hotel < chemin/vers/correction_hotel.sql
 
 # Exemple si vous êtes à la racine du projet et utilisez l'utilisateur "postgres" :
-psql -U postgres -d hotel < database/correction_hotel.sql
+psql -U postgres -d correction_hotel < database/correction_hotel.sql
 ````
 (N'oubliez pas de saisir le mot de passe de votre utilisateur PostgreSQL lorsque le système vous le demande)
 

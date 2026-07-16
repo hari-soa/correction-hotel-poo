@@ -1,39 +1,37 @@
-# Gestion Hôtel - Importation de la Base de Données
+# Hotel Management - Database Importation
+This Java/Maven project uses PostgreSQL as its database management system.
+To run the application locally, you must first create the database and import the schema along with the test data from the correction_hotel.sql file provided in the project.
 
-Ce projet Java/Maven utilise **PostgreSQL** comme système de gestion de base de données.
-Pour faire fonctionner l'application localement, vous devez d'abord créer la base de données et y importer le schéma ainsi que les données de test à partir du fichier `correction_hotel.sql` fourni dans le projet.
+Prerequisites
+Before starting, make sure you have:
 
----
+PostgreSQL installed on your machine (v14 or higher recommended).
 
-## Prérequis
+The PostgreSQL server up and running.
 
-Avant de commencer, assurez-vous d'avoir :
-1. **PostgreSQL** installé sur votre machine (v14 ou supérieure recommandée).
-2. Le serveur PostgreSQL démarré.
+Steps to Follow
+The backup script contains the tables and data, but it is not configured to automatically create the database "envelope" itself. Therefore, you must create it manually.
 
----
-
-## Voici les étapes à suivre
-
-Le script de sauvegarde contient les tables et les données, mais il n'est pas configuré pour créer automatiquement la base de données "enveloppe". Vous devez donc la créer manuellement.
-
-Connectez-vous à PostgreSQL avec l'utilisateur administrateur :
+Connect to PostgreSQL with the administrator user:
 ```bash
 psql -U postgres
 CREATE DATABASE hotel;
 \q
-# Syntaxe générale :
-psql -U [votre_utilisateur] -d correction_hotel < chemin/vers/correction_hotel.sql
 
-# Exemple si vous êtes à la racine du projet et utilisez l'utilisateur "postgres" :
+# General Syntax:
+psql -U [your_username] -d correction_hotel < path/to/correction_hotel.sql
+
+# Example if you are at the project root and using the "postgres" user:
 psql -U postgres -d correction_hotel < database/correction_hotel.sql
-````
-(N'oubliez pas de saisir le mot de passe de votre utilisateur PostgreSQL lorsque le système vous le demande)
+```
 
-Une fois l'importation réussie, assurez-vous que les identifiants de votre fichier local DataBaseConnection.java correspondent à votre installation PostgreSQL :
+(Do not forget to enter your PostgreSQL user password when prompted by the system).
+
+Connection Configuration
+Once the import is successful, make sure the credentials in your local DataBaseConnection.java file match your local PostgreSQL installation:
 
 ````bash
 private static String URL = "jdbc:postgresql://localhost:5432/correction_hotel";
-private static String USER = "hotel"; // Remplacez par votre utilisateur (ex: postgres)
-private static String PASSWORD = " "; // Remplacez par votre mot de passe
+private static String USER = "hotel"; // Replace with your username (e.g., postgres)
+private static String PASSWORD = " "; // Replace with your password
 ````
